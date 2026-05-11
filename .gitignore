@@ -12,6 +12,9 @@ playwright-report/
 test-results/
 exports/
 
+# Personal project notes and private references
+docs/
+
 # Logs
 logs
 *.log

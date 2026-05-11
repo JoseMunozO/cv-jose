@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# Jose Carlos Muñoz - CV App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![CI](https://github.com/JoseMunozO/cv-jose/actions/workflows/ci.yml/badge.svg)](https://github.com/JoseMunozO/cv-jose/actions/workflows/ci.yml)
 
-Currently, two official plugins are available:
+Editable CV built with React, TypeScript and Vite. The project is designed as a portfolio-ready resume app with print styles for exporting a clean A4 PDF.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Centralized CV data in `src/data/cv.ts`
+- Internationalization with `i18next` and `react-i18next`
+- Browser language detection with English as fallback
+- Responsive React layout
+- Print-optimized A4 styling
+- Direct PDF download through the `Ladda ner PDF` button
+- No backend or database required
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Edit Content
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Update the CV content in:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/data/cv.ts
 ```
+
+The app currently supports English, Swedish and Spanish. English is the default fallback language. UI labels are handled through `src/i18n.ts`, while CV content is stored as typed resume data.
+
+To use a real profile photo, add the image to `public/profile/` and set `photoUrl` in `src/data/cv.ts`, for example `/profile/profile-photo.jpg`. If no photo is configured, the CV shows a clean initials avatar.
+
+## Export PDF
+
+Run the app and click `Ladda ner PDF`. The browser downloads `jose-carlos-munoz-cv.pdf`.
+
+## Scripts
+
+```bash
+npm run dev
+npm run build
+npm run lint
+```
+
+## Quality
+
+The repository includes GitHub Actions CI for pull requests and pushes. The workflow installs dependencies with `npm ci`, runs ESLint and builds the production bundle.
+
+## Deployment
+
+This project is prepared for Netlify. Netlify should use:
+
+```text
+Build command: npm run build
+Publish directory: dist
+```
+
+The `netlify.toml` file includes the production build settings, SPA fallback and basic security/cache headers.
+
+## Notes
+
+The old CV screenshots in `docs/` are kept as design references only. The current layout is rebuilt from scratch for a cleaner professional CV and portfolio presentation.
