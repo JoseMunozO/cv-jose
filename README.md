@@ -7,9 +7,13 @@ Editable CV built with React, TypeScript and Vite. The project is designed as a 
 ## Features
 
 - Centralized CV data in `src/data/cv.ts`
+- Internationalization with `i18next` and `react-i18next`
+- Browser language detection with English as fallback
 - Responsive React layout
 - Print-optimized A4 styling
-- Direct PDF download through the `Ladda ner PDF` button
+- Direct PDF download for the active language
+- Profile photo support with initials fallback
+- Netlify-ready deployment configuration
 - No backend or database required
 
 ## Getting Started
@@ -27,9 +31,19 @@ Update the CV content in:
 src/data/cv.ts
 ```
 
+The app currently supports English, Swedish and Spanish. English is the default fallback language. UI labels are handled through `src/i18n.ts`, while CV content is stored as typed resume data.
+
+To use a real profile photo, add the image to `public/profile/` and set `photoUrl` in `src/data/cv.ts`, for example `/profile/profile-photo.jpg`. If no photo is configured, the CV shows a clean initials avatar.
+
 ## Export PDF
 
-Run the app and click `Ladda ner PDF`. The browser downloads `jose-carlos-munoz-cv.pdf`.
+Run the app and click the PDF download button. The browser downloads a language-specific file:
+
+```text
+jose-carlos-munoz-cv-en.pdf
+jose-carlos-munoz-cv-sv.pdf
+jose-carlos-munoz-cv-es.pdf
+```
 
 ## Scripts
 
@@ -56,4 +70,4 @@ The `netlify.toml` file includes the production build settings, SPA fallback and
 
 ## Notes
 
-The old CV screenshots in `docs/` are kept as design references only. The current layout is rebuilt from scratch for a cleaner professional CV and portfolio presentation.
+Private planning notes and old CV references are kept outside Git in `docs/`. The public project contains only the production CV app and repository tooling.
