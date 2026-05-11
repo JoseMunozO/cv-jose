@@ -7,6 +7,8 @@ Editable CV built with React, TypeScript and Vite. The project is designed as a 
 ## Features
 
 - Centralized CV data in `src/data/cv.ts`
+- Internationalization with `i18next` and `react-i18next`
+- Browser language detection with English as fallback
 - Responsive React layout
 - Print-optimized A4 styling
 - Direct PDF download through the `Ladda ner PDF` button
@@ -26,6 +28,10 @@ Update the CV content in:
 ```text
 src/data/cv.ts
 ```
+
+The app currently supports English, Swedish and Spanish. English is the default fallback language. UI labels are handled through `src/i18n.ts`, while CV content is stored as typed resume data.
+
+To use a real profile photo, add the image to `public/profile/` and set `photoUrl` in `src/data/cv.ts`, for example `/profile/profile-photo.jpg`. If no photo is configured, the CV shows a clean initials avatar.
 
 ## Export PDF
 
