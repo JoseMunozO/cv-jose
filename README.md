@@ -43,6 +43,17 @@ npm run lint
 
 The repository includes GitHub Actions CI for pull requests and pushes. The workflow installs dependencies with `npm ci`, runs ESLint and builds the production bundle.
 
+## Deployment
+
+This project is prepared for Netlify. Netlify should use:
+
+```text
+Build command: npm run build
+Publish directory: dist
+```
+
+The `netlify.toml` file includes the production build settings, SPA fallback and basic security/cache headers.
+
 ## Notes
 
 The old CV screenshots in `docs/` are kept as design references only. The current layout is rebuilt from scratch for a cleaner professional CV and portfolio presentation.
