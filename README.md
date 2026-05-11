@@ -1,5 +1,7 @@
 # Jose Carlos Muñoz - CV App
 
+[![CI](https://github.com/JoseMunozO/cv-jose/actions/workflows/ci.yml/badge.svg)](https://github.com/JoseMunozO/cv-jose/actions/workflows/ci.yml)
+
 Editable CV built with React, TypeScript and Vite. The project is designed as a portfolio-ready resume app with print styles for exporting a clean A4 PDF.
 
 ## Features
@@ -36,6 +38,10 @@ npm run dev
 npm run build
 npm run lint
 ```
+
+## Quality
+
+The repository includes GitHub Actions CI for pull requests and pushes. The workflow installs dependencies with `npm ci`, runs ESLint and builds the production bundle.
 
 ## Notes
 
