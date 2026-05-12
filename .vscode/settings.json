@@ -1,0 +1,7 @@
+{
+  "tailwindCSS.validate": false,
+  "tailwindCSS.suggestions": false,
+  "tailwindCSS.hovers": false,
+  "tailwindCSS.codeActions": false,
+  "tailwindCSS.colorDecorators": false
+}
